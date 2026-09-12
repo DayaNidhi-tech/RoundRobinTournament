@@ -1,0 +1,10 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "team.h"
+static void fail(char *e,size_t n,const char *s){if(e&&n)snprintf(e,n,"%s",s);} static int reserve(Tournament *t){if(t->team_count<t->team_capacity)return 1;size_t c=t->team_capacity?t->team_capacity*2:8;Team *p=realloc(t->teams,c*sizeof *p);if(!p)return 0;t->teams=p;t->team_capacity=c;return 1;}
+Team *team_find(Tournament *t,int id){size_t i;for(i=0;i<t->team_count;i++)if(t->teams[i].id==id)return &t->teams[i];return NULL;}
+static int valid(Tournament *t,int ignore,const char *name,char *e,size_t n){size_t i;if(!name||!*name){fail(e,n,"Team name is required");return 0;}for(i=0;i<t->team_count;i++)if(t->teams[i].id!=ignore&&strcmp(t->teams[i].name,name)==0){fail(e,n,"Team names must be unique");return 0;}return 1;}
+int team_add(Tournament *t,const char *name,const char *city,const char *logo,char *e,size_t n){Team *x;if(!valid(t,0,name,e,n))return 0;if(t->match_count){fail(e,n,"Cannot add teams after schedule generation; regenerate after editing teams");return 0;}if(!reserve(t)){fail(e,n,"Out of memory");return 0;}x=&t->teams[t->team_count++];memset(x,0,sizeof *x);x->id=t->next_team_id++;snprintf(x->name,NAME_LEN,"%s",name);snprintf(x->city,NAME_LEN,"%s",city?city:"");snprintf(x->logo,TEXT_LEN,"%s",logo?logo:"");return 1;}
+int team_update(Tournament *t,int id,const char *name,const char *city,const char *logo,char *e,size_t n){Team *x=team_find(t,id);if(!x){fail(e,n,"Team not found");return 0;}if(!valid(t,id,name,e,n))return 0;snprintf(x->name,NAME_LEN,"%s",name);snprintf(x->city,NAME_LEN,"%s",city?city:"");snprintf(x->logo,TEXT_LEN,"%s",logo?logo:"");return 1;}
+int team_delete(Tournament *t,int id,char *e,size_t n){size_t i; if(!team_find(t,id)){fail(e,n,"Team not found");return 0;}if(t->match_count){fail(e,n,"Cannot delete a team after fixtures exist. Reset the schedule first.");return 0;}for(i=0;i<t->team_count;i++)if(t->teams[i].id==id){memmove(&t->teams[i],&t->teams[i+1],(t->team_count-i-1)*sizeof *t->teams);t->team_count--;return 1;}return 0;}

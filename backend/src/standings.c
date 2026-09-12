@@ -1,0 +1,6 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "standings.h"
+static int compare(const void *a,const void *b){const Standing *x=a,*y=b;if(x->points!=y->points)return y->points-x->points;if(x->gd!=y->gd)return y->gd-x->gd;if(x->gf!=y->gf)return y->gf-x->gf;return strcmp(x->name,y->name);}
+Standing *standings_calculate(const Tournament *t,size_t *count){size_t i,j;Standing *s=calloc(t->team_count,sizeof *s);if(count)*count=t->team_count;if(!s)return NULL;for(i=0;i<t->team_count;i++){s[i].team_id=t->teams[i].id;snprintf(s[i].name,NAME_LEN,"%s",t->teams[i].name);}for(i=0;i<t->match_count;i++){const Match *m=&t->matches[i];Standing *h=NULL,*a=NULL;if(m->status!=MATCH_COMPLETED)continue;for(j=0;j<t->team_count;j++){if(s[j].team_id==m->home_id)h=&s[j];if(s[j].team_id==m->away_id)a=&s[j];}if(!h||!a)continue;h->played++;a->played++;h->gf+=m->home_score;h->ga+=m->away_score;a->gf+=m->away_score;a->ga+=m->home_score;if(m->home_score>m->away_score){h->wins++;h->points+=3;a->losses++;}else if(m->home_score<m->away_score){a->wins++;a->points+=3;h->losses++;}else{h->draws++;a->draws++;h->points++;a->points++;}}for(i=0;i<t->team_count;i++)s[i].gd=s[i].gf-s[i].ga;qsort(s,t->team_count,sizeof *s,compare);return s;}

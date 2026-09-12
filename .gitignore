@@ -1,0 +1,30 @@
+# MinGW / C build outputs
+*.exe
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.out
+build/
+bin/
+
+# Runtime tournament storage and test output
+data/*.bin
+
+# Editor and operating-system temporary files
+.vscode/*.log
+.vs/
+*.tmp
+*.temp
+*.bak
+*~
+Thumbs.db
+Desktop.ini
+
+# Secrets and local environment files
+.env
+.env.*
+*.pem
+*.key
+credentials.json
