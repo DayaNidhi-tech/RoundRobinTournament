@@ -1,1 +1,236 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Standings · Tournament Hub</title><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="shell"><aside class="side"><div class="brand">🏆 <span>Tournament</span> Hub</div><nav class="nav"><a href="index.html">Dashboard</a><a href="teams.html">Teams</a><a href="schedule.html">Schedule</a><a href="results.html">Results</a><a class="active" href="standings.html">Standings</a><a href="settings.html">Settings</a></nav></aside><main class="main"><div class="top"><div><div class="eyebrow">League table</div><h1>Standings</h1></div><div class="admin">Admin · <select id="selector"></select></div></div><div class="panel table-wrap"><table><thead><tr><th>#</th><th>Team</th><th>P</th><th>W</th><th>D</th><th>L</th><th>GF</th><th>GA</th><th>GD</th><th>PTS</th></tr></thead><tbody id="rows"></tbody></table></div></main></div><div id="modal" class="modal" hidden></div><script src="assets/js/api.js"></script><script src="assets/js/app.js"></script><script src="assets/js/standings.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Standings · Tournament Hub</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <span>TH</span>
+            </div>
+
+            <div class="brand-copy">
+                <strong>Tournament</strong>
+                <span>Hub</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+            <nav class="nav">
+
+                <a class="nav-item" href="index.html">
+                    <span class="nav-icon">D</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a class="nav-item" href="teams.html">
+                    <span class="nav-icon">T</span>
+                    <span>Teams</span>
+                </a>
+
+                <a class="nav-item" href="schedule.html">
+                    <span class="nav-icon">S</span>
+                    <span>Schedule</span>
+                </a>
+
+                <a class="nav-item" href="results.html">
+                    <span class="nav-icon">R</span>
+                    <span>Results</span>
+                </a>
+
+                <a class="nav-item active" href="standings.html">
+                    <span class="nav-icon">L</span>
+                    <span>Standings</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-section sidebar-bottom">
+
+            <span class="sidebar-label">
+                Management
+            </span>
+
+            <nav class="nav">
+
+                <a class="nav-item" href="settings.html">
+                    <span class="nav-icon">S</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span>Tournament Manager</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+
+                <div class="brand-mark small">
+                    <span>TH</span>
+                </div>
+
+                <strong>Tournament Hub</strong>
+
+            </div>
+
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    LEAGUE TABLE
+                </span>
+
+                <h1>
+                    Standings
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="tournament-selector">
+
+                    <span class="selector-label">
+                        Tournament
+                    </span>
+
+                    <select id="selector"></select>
+
+                </div>
+
+
+                <div class="profile-button">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Manager
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            League Table
+                        </h2>
+
+                        <span>
+                            Rankings calculated from match results
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrap">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>#</th>
+                                <th>Team</th>
+                                <th>P</th>
+                                <th>W</th>
+                                <th>D</th>
+                                <th>L</th>
+                                <th>GF</th>
+                                <th>GA</th>
+                                <th>GD</th>
+                                <th>PTS</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="rows"></tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<div id="modal" class="modal" hidden></div>
+
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/standings.js"></script>
+
+</body>
+</html>

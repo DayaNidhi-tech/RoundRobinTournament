@@ -1,1 +1,370 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Settings · Tournament Hub</title><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="shell"><aside class="side"><div class="brand">🏆 <span>Tournament</span> Hub</div><nav class="nav"><a href="index.html">Dashboard</a><a href="teams.html">Teams</a><a href="schedule.html">Schedule</a><a href="results.html">Results</a><a href="standings.html">Standings</a><a class="active" href="settings.html">Settings</a></nav></aside><main class="main"><div class="top"><div><div class="eyebrow">Configuration</div><h1>Tournament Settings</h1></div><div class="admin">Admin · <select id="selector"></select></div></div><div class="split"><div class="panel"><h2>Tournament details</h2><div class="field"><label>Name</label><input id="name"></div><div class="field"><label>Description</label><textarea id="description"></textarea></div><div class="field"><label>Status</label><select id="status"><option value="0">Draft</option><option value="1">Active</option><option value="2">Completed</option></select></div><button class="btn" id="save">Save settings</button></div><div class="panel"><h2>Data safety</h2><p class="muted">Regenerating fixtures discards existing results. Team deletion is locked after fixtures exist.</p><button class="btn alt" id="saveData">Save all tournaments</button><button class="btn danger" id="delete" style="margin-left:8px">Delete tournament</button></div></div><div class="panel"><h2>Create another tournament</h2><button class="btn" id="create">+ Create Tournament</button></div></main></div><div id="modal" class="modal" hidden></div><script src="assets/js/api.js"></script><script src="assets/js/app.js"></script><script src="assets/js/settings.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Settings · Tournament Hub</title>
+
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <span>TH</span>
+            </div>
+
+            <div class="brand-copy">
+                <strong>Tournament</strong>
+                <span>Hub</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+            <nav class="nav">
+
+                <a class="nav-item" href="index.html">
+                    <span class="nav-icon">D</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a class="nav-item" href="teams.html">
+                    <span class="nav-icon">T</span>
+                    <span>Teams</span>
+                </a>
+
+                <a class="nav-item" href="schedule.html">
+                    <span class="nav-icon">S</span>
+                    <span>Schedule</span>
+                </a>
+
+                <a class="nav-item" href="results.html">
+                    <span class="nav-icon">R</span>
+                    <span>Results</span>
+                </a>
+
+                <a class="nav-item" href="standings.html">
+                    <span class="nav-icon">L</span>
+                    <span>Standings</span>
+                </a>
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-section sidebar-bottom">
+
+            <span class="sidebar-label">
+                Management
+            </span>
+
+            <nav class="nav">
+
+                <a class="nav-item active" href="settings.html">
+                    <span class="nav-icon">S</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+                <div>
+                    <strong>Administrator</strong>
+                    <span>Tournament Manager</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="mobile-brand">
+
+                <div class="brand-mark small">
+                    <span>TH</span>
+                </div>
+
+                <strong>Tournament Hub</strong>
+
+            </div>
+
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    CONFIGURATION
+                </span>
+
+                <h1>
+                    Tournament Settings
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+                <div class="tournament-selector">
+
+                    <span class="selector-label">
+                        Tournament
+                    </span>
+
+                    <select id="selector"></select>
+
+                </div>
+
+
+                <div class="profile-button">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Manager
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <div class="page-content">
+
+
+            <div class="split">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <h2>
+                                Tournament Details
+                            </h2>
+
+                            <span>
+                                Update the basic information for this tournament
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div style="padding: 0 21px 21px;">
+
+                        <div class="field">
+
+                            <label for="name">
+                                Tournament Name
+                            </label>
+
+                            <input
+                                id="name"
+                                placeholder="Enter tournament name"
+                            >
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                placeholder="Describe your tournament..."
+                            ></textarea>
+
+                        </div>
+
+
+                        <div class="field">
+
+                            <label for="status">
+                                Tournament Status
+                            </label>
+
+                            <select id="status">
+
+                                <option value="0">
+                                    Draft
+                                </option>
+
+                                <option value="1">
+                                    Active
+                                </option>
+
+                                <option value="2">
+                                    Completed
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <button
+                            class="btn"
+                            id="save"
+                        >
+                            Save Settings
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div class="panel-title">
+
+                            <h2>
+                                Data Safety
+                            </h2>
+
+                            <span>
+                                Tournament data management
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div style="padding: 0 21px 21px;">
+
+                        <p
+                            class="muted"
+                            style="line-height:1.7;font-size:12px;"
+                        >
+                            Regenerating fixtures discards existing results.
+                            Team deletion is locked after fixtures exist.
+                            Save your tournament data before making major
+                            changes.
+                        </p>
+
+
+                        <div
+                            style="
+                                display:flex;
+                                flex-wrap:wrap;
+                                gap:8px;
+                                margin-top:18px;
+                            "
+                        >
+
+                            <button
+                                class="btn alt"
+                                id="saveData"
+                            >
+                                Save All Tournaments
+                            </button>
+
+
+                            <button
+                                class="btn danger"
+                                id="delete"
+                            >
+                                Delete Tournament
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div class="panel-title">
+
+                        <h2>
+                            Create Another Tournament
+                        </h2>
+
+                        <span>
+                            Manage multiple independent tournaments
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="btn"
+                        id="create"
+                    >
+                        + Create Tournament
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<div id="modal" class="modal" hidden></div>
+
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/settings.js"></script>
+
+</body>
+</html>

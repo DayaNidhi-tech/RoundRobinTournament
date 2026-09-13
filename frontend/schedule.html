@@ -1,1 +1,201 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Schedule · Tournament Hub</title><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="shell"><aside class="side"><div class="brand">🏆 <span>Tournament</span> Hub</div><nav class="nav"><a href="index.html">Dashboard</a><a href="teams.html">Teams</a><a class="active" href="schedule.html">Schedule</a><a href="results.html">Results</a><a href="standings.html">Standings</a><a href="settings.html">Settings</a></nav></aside><main class="main"><div class="top"><div><div class="eyebrow">Fixtures</div><h1>Tournament Schedule</h1></div><div class="admin">Admin · <select id="selector"></select></div></div><div class="panel"><div class="panel-head"><h2>Round Robin Fixtures</h2><button class="btn" id="generate">Generate / Regenerate</button></div><div id="tabs" class="tabs"></div><div id="fixtures"></div></div></main></div><div id="modal" class="modal" hidden></div><script src="assets/js/api.js"></script><script src="assets/js/app.js"></script><script src="assets/js/schedule.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Schedule | Tournament Hub</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<div class="app-shell">
+
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-mark">TH</div>
+
+            <div class="brand-text">
+                Tournament
+                <span>Hub</span>
+            </div>
+        </div>
+
+        <div class="sidebar-section-title">Workspace</div>
+
+        <nav class="sidebar-nav">
+
+            <a href="index.html" class="nav-item">
+                <div class="nav-icon">D</div>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="teams.html" class="nav-item">
+                <div class="nav-icon">T</div>
+                <span>Teams</span>
+            </a>
+
+            <a href="schedule.html" class="nav-item active">
+                <div class="nav-icon">S</div>
+                <span>Schedule</span>
+            </a>
+
+            <a href="results.html" class="nav-item">
+                <div class="nav-icon">R</div>
+                <span>Results</span>
+            </a>
+
+            <a href="standings.html" class="nav-item">
+                <div class="nav-icon">L</div>
+                <span>Standings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-section-title">Management</div>
+
+            <nav class="sidebar-nav">
+                <a href="settings.html" class="nav-item">
+                    <div class="nav-icon">S</div>
+                    <span>Settings</span>
+                </a>
+            </nav>
+
+            <div class="profile-mini">
+                <div class="profile-avatar">A</div>
+
+                <div>
+                    <div class="profile-name">Administrator</div>
+                    <div class="profile-role">Tournament Manager</div>
+                </div>
+            </div>
+
+        </div>
+
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div class="page-heading">
+                <div class="page-eyebrow">Fixtures</div>
+                <h1 class="page-title">Tournament Schedule</h1>
+            </div>
+
+            <div class="topbar-right">
+
+                <div class="tournament-selector">
+                    <span class="selector-label">Tournament</span>
+
+                    <select id="selector" class="selector-value"></select>
+
+                    <span class="selector-arrow">⌄</span>
+                </div>
+
+                <div class="profile-button">
+                    <div class="profile-avatar">A</div>
+
+                    <div>
+                        <strong>Admin</strong>
+                        <small>Manager</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </header>
+
+        <div class="page-content">
+
+            <section class="schedule-page-panel">
+
+                <div class="schedule-header">
+
+                    <div class="schedule-heading">
+
+                        <div class="schedule-title-row">
+
+                            <div>
+                                <div class="schedule-kicker">ROUND ROBIN</div>
+
+                                <h2>Round Robin Fixtures</h2>
+                            </div>
+
+                            <button
+                                id="generate"
+                                class="schedule-generate-btn"
+                                type="button"
+                            >
+                                Generate Schedule
+                            </button>
+
+                        </div>
+
+                        <p>
+                            Every team plays every other team exactly once.
+                            The schedule is generated automatically by the
+                            Round Robin algorithm running in C.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="round-navigation">
+
+                    <div class="round-navigation-label">
+                        Tournament Rounds
+                    </div>
+
+                    <div
+                        id="tabs"
+                        class="round-tabs"
+                        role="tablist"
+                        aria-label="Tournament rounds"
+                    ></div>
+
+                </div>
+
+                <div class="schedule-matches-area">
+
+                    <div class="matches-header">
+
+                        <div>
+                            <span class="matches-label">FIXTURES</span>
+
+                            <h3 id="roundTitle">Round 1</h3>
+                        </div>
+
+                        <div id="matchCount" class="match-count">
+                            0 matches
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="fixtures"
+                        class="schedule-fixtures"
+                    ></div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+</div>
+
+<div id="modal" class="modal" hidden></div>
+
+<script src="assets/js/api.js"></script>
+<script src="assets/js/app.js"></script>
+<script src="assets/js/schedule.js"></script>
+
+</body>
+</html>

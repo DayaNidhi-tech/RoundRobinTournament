@@ -1,1 +1,286 @@
-<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Tournament Hub</title><link rel="stylesheet" href="assets/css/style.css"></head><body><div class="shell"><aside class="side"><div class="brand">🏆 <span>Tournament</span> Hub</div><nav class="nav"><a class="active" href="index.html">Dashboard</a><a href="teams.html">Teams</a><a href="schedule.html">Schedule</a><a href="results.html">Results</a><a href="standings.html">Standings</a><a href="settings.html">Settings</a></nav></aside><main class="main"><div class="top"><div><div class="eyebrow">Round Robin Tournament</div><h1 id="title">Tournament Dashboard</h1></div><div class="admin">Admin · <select id="selector"></select></div></div><div id="content"></div></main></div><div id="modal" class="modal" hidden></div><script src="assets/js/api.js"></script><script src="assets/js/app.js"></script><script src="assets/js/dashboard.js"></script></body></html>
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Tournament Hub</title>
+
+    <link
+        rel="stylesheet"
+        href="assets/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+<div class="app-shell">
+
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar">
+
+
+        <div class="brand">
+
+            <div class="brand-mark">
+                <span>TH</span>
+            </div>
+
+            <div class="brand-copy">
+                <strong>Tournament</strong>
+                <span>Hub</span>
+            </div>
+
+        </div>
+
+
+        <div class="sidebar-section">
+
+            <span class="sidebar-label">
+                Workspace
+            </span>
+
+
+            <nav class="nav">
+
+
+                <a
+                    class="nav-item active"
+                    href="index.html"
+                >
+                    <span class="nav-icon">D</span>
+                    <span>Dashboard</span>
+                </a>
+
+
+                <a
+                    class="nav-item"
+                    href="teams.html"
+                >
+                    <span class="nav-icon">T</span>
+                    <span>Teams</span>
+                </a>
+
+
+                <a
+                    class="nav-item"
+                    href="schedule.html"
+                >
+                    <span class="nav-icon">S</span>
+                    <span>Schedule</span>
+                </a>
+
+
+                <a
+                    class="nav-item"
+                    href="results.html"
+                >
+                    <span class="nav-icon">R</span>
+                    <span>Results</span>
+                </a>
+
+
+                <a
+                    class="nav-item"
+                    href="standings.html"
+                >
+                    <span class="nav-icon">L</span>
+                    <span>Standings</span>
+                </a>
+
+
+            </nav>
+
+        </div>
+
+
+        <div class="sidebar-section sidebar-bottom">
+
+            <span class="sidebar-label">
+                Management
+            </span>
+
+
+            <nav class="nav">
+
+                <a
+                    class="nav-item"
+                    href="settings.html"
+                >
+                    <span class="nav-icon">S</span>
+                    <span>Settings</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-footer">
+
+                <div class="admin-avatar">
+                    A
+                </div>
+
+
+                <div class="sidebar-user">
+
+                    <strong>
+                        Administrator
+                    </strong>
+
+                    <span>
+                        Tournament Manager
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =========================================
+         MAIN
+    ========================================== -->
+
+    <main class="main-content">
+
+
+        <header class="topbar">
+
+
+            <div class="mobile-brand">
+
+                <div class="brand-mark small">
+                    <span>TH</span>
+                </div>
+
+                <strong>
+                    Tournament Hub
+                </strong>
+
+            </div>
+
+
+            <div class="page-heading">
+
+                <span class="eyebrow">
+                    ROUND ROBIN TOURNAMENT
+                </span>
+
+                <h1 id="title">
+                    Tournament Dashboard
+                </h1>
+
+            </div>
+
+
+            <div class="topbar-actions">
+
+
+                <div class="tournament-selector">
+
+                    <span class="selector-label">
+                        Tournament
+                    </span>
+
+                    <select id="selector">
+                    </select>
+
+                </div>
+
+
+                <div class="profile-button">
+
+                    <div class="profile-avatar">
+                        A
+                    </div>
+
+                    <div class="profile-info">
+
+                        <strong>
+                            Admin
+                        </strong>
+
+                        <span>
+                            Manager
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =========================================
+             DASHBOARD CONTENT
+        ========================================== -->
+
+        <div
+            class="page-content"
+            id="content"
+        >
+
+            <div class="loading-screen">
+
+                <div class="loading-spinner"></div>
+
+                <p>
+                    Loading tournament...
+                </p>
+
+            </div>
+
+        </div>
+
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================
+     MODAL
+========================================== -->
+
+<div
+    id="modal"
+    class="modal"
+    hidden
+></div>
+
+
+
+<!-- =========================================
+     JAVASCRIPT
+========================================== -->
+
+<script src="assets/js/api.js"></script>
+
+<script src="assets/js/app.js"></script>
+
+<script src="assets/js/dashboard.js"></script>
+
+
+</body>
+
+</html>
