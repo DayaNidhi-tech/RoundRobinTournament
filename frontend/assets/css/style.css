@@ -2339,3 +2339,716 @@ tr:last-child td {
         justify-content: flex-start;
     }
 }
+
+
+/* =========================================================
+   COMPACT UI OVERRIDE
+   Preserves the existing design, colors, images,
+   animations, API behavior and layout while scaling
+   the interface down.
+   ========================================================= */
+
+.sidebar {
+    width: 250px;
+    padding: 28px 18px 20px;
+}
+
+.main-content {
+    margin-left: 250px;
+    width: calc(100% - 250px);
+}
+
+.brand {
+    gap: 12px;
+    margin-bottom: 34px;
+}
+
+.brand-mark {
+    width: 52px;
+    height: 52px;
+    flex-basis: 52px;
+    border-radius: 15px;
+    font-size: 18px;
+}
+
+.brand-text {
+    font-size: 18px;
+}
+
+.sidebar-nav {
+    gap: 5px;
+}
+
+.nav-item {
+    min-height: 50px;
+    padding: 7px 10px;
+    gap: 11px;
+    border-radius: 13px;
+    font-size: 14px;
+}
+
+.nav-icon {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    border-radius: 11px;
+    font-size: 13px;
+}
+
+.sidebar-section-title {
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.sidebar-bottom {
+    padding-top: 16px;
+}
+
+.profile-mini {
+    gap: 10px;
+    padding: 7px;
+}
+
+.profile-avatar {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+}
+
+
+/* Top bar */
+
+.topbar {
+    min-height: 96px;
+    padding: 20px 36px;
+}
+
+.page-eyebrow {
+    font-size: 11px;
+}
+
+.page-title {
+    font-size: 27px;
+}
+
+.topbar-right {
+    gap: 16px;
+}
+
+.tournament-selector {
+    min-width: 280px;
+    min-height: 50px;
+    padding: 0 15px 0 16px;
+    gap: 11px;
+    border-radius: 14px;
+}
+
+.selector-label {
+    font-size: 10px;
+}
+
+.selector-value {
+    font-size: 13px;
+}
+
+.selector-arrow {
+    font-size: 16px;
+}
+
+.profile-button .profile-avatar {
+    width: 46px;
+    height: 46px;
+}
+
+.profile-button strong {
+    font-size: 14px;
+}
+
+.profile-button small {
+    font-size: 11px;
+}
+
+
+/* Page */
+
+.page-content {
+    padding: 26px 36px 42px;
+    max-width: 1550px;
+}
+
+
+/* Dashboard hero */
+
+.hero {
+    min-height: 505px;
+    padding: 52px;
+    border-radius: 26px;
+}
+
+.hero-copy {
+    max-width: 650px;
+}
+
+.hero-kicker {
+    padding: 8px 14px;
+    margin-bottom: 21px;
+    font-size: 10px;
+}
+
+.hero h2 {
+    font-size: clamp(42px, 4.2vw, 62px);
+    letter-spacing: -2.3px;
+}
+
+.hero-description {
+    max-width: 560px;
+    margin-top: 24px;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.hero-actions {
+    gap: 10px;
+    margin-top: 26px;
+}
+
+.hero-button,
+.hero-secondary {
+    min-height: 52px;
+    padding: 0 22px;
+    border-radius: 13px;
+    font-size: 13px;
+}
+
+
+/* Dashboard cards */
+
+.dashboard-grid {
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.stat-card {
+    min-height: 118px;
+    padding: 18px;
+    gap: 13px;
+    border-radius: 18px;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    flex-basis: 48px;
+    border-radius: 14px;
+    font-size: 16px;
+}
+
+.stat-label {
+    font-size: 12px;
+}
+
+.stat-value {
+    margin-top: 4px;
+    font-size: 27px;
+}
+
+.dashboard-columns {
+    gap: 18px;
+    margin-top: 20px;
+}
+
+.panel {
+    padding: 21px;
+    border-radius: 20px;
+}
+
+.panel-header,
+.panel-head {
+    gap: 14px;
+    margin-bottom: 16px;
+}
+
+.panel-title h2,
+.panel-header h2,
+.panel-head h2 {
+    font-size: 17px;
+}
+
+.panel-title span {
+    font-size: 12px;
+}
+
+.fixture-list {
+    gap: 8px;
+}
+
+.fixture {
+    min-height: 62px;
+    padding: 12px 14px;
+    border-radius: 13px;
+}
+
+
+/* Schedule */
+
+.schedule-page-panel {
+    padding: 26px;
+    border-radius: 22px;
+}
+
+.schedule-header {
+    margin-bottom: 22px;
+}
+
+.schedule-title-row {
+    gap: 18px;
+}
+
+.schedule-kicker,
+.matches-label,
+.round-navigation-label {
+    font-size: 10px;
+    letter-spacing: .1em;
+    font-weight: 900;
+}
+
+.schedule-heading h2,
+.schedule-title-row h2 {
+    margin: 5px 0 0;
+    font-size: 26px;
+    letter-spacing: -.7px;
+}
+
+.schedule-heading p {
+    max-width: 720px;
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.55;
+}
+
+.schedule-generate-btn {
+    min-height: 45px;
+    padding: 0 18px;
+    border-radius: 11px;
+    font-size: 12px;
+}
+
+.round-navigation {
+    padding: 17px 0;
+    margin-bottom: 20px;
+}
+
+.round-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.round-tab {
+    appearance: none;
+    border: 1px solid #dddcd3;
+    outline: 0;
+    min-height: 38px;
+    padding: 0 15px;
+    border-radius: 10px;
+    background: #f5f3ec;
+    color: #777e77;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 850;
+    cursor: pointer;
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+.round-tab:hover {
+    background: #fff;
+    color: var(--ink);
+    transform: translateY(-1px);
+}
+
+.round-tab.active {
+    background: linear-gradient(145deg, #e8c581, #d5a95f);
+    border-color: transparent;
+    color: #20251f;
+    box-shadow: 0 5px 14px rgba(180,137,65,.18);
+}
+
+.round-tab-number {
+    margin-right: 5px;
+    opacity: .65;
+}
+
+.schedule-matches-area {
+    margin-top: 4px;
+}
+
+.matches-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 14px;
+}
+
+.matches-header h3 {
+    margin: 4px 0 0;
+    font-size: 20px;
+    letter-spacing: -.4px;
+}
+
+.match-count {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.schedule-fixtures {
+    display: grid;
+    gap: 10px;
+}
+
+.schedule-match-card {
+    display: grid;
+    grid-template-columns: 58px minmax(0, 1fr) 92px;
+    align-items: center;
+    gap: 16px;
+    min-height: 82px;
+    padding: 14px 17px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: rgba(250,249,245,.92);
+    transition:
+        transform .2s ease,
+        box-shadow .2s ease,
+        background .2s ease;
+}
+
+.schedule-match-card:hover {
+    transform: translateY(-2px);
+    background: #fff;
+    box-shadow: var(--shadow-soft);
+}
+
+.match-number {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    color: var(--muted);
+}
+
+.match-number span {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+.match-number strong {
+    color: var(--ink);
+    font-size: 20px;
+}
+
+.match-teams {
+    display: grid;
+    grid-template-columns:
+        minmax(0,1fr)
+        42px
+        minmax(0,1fr);
+    align-items: center;
+    gap: 8px;
+}
+
+.schedule-team {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.away-team {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.team-name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 14px;
+    font-weight: 850;
+}
+
+.team-side {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .08em;
+}
+
+.match-vs {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #efede5;
+    color: #8a8f89;
+    font-size: 10px;
+    font-weight: 950;
+}
+
+.match-status {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.schedule-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 29px;
+    padding: 0 10px;
+    border-radius: 20px;
+    background: #f0eee7;
+    color: #767b75;
+    font-size: 10px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.schedule-status.completed {
+    background: #e3f0e7;
+    color: #477857;
+}
+
+.schedule-status.upcoming {
+    background: #f5ead7;
+    color: #a87531;
+}
+
+.schedule-status.bye {
+    background: #f4ead7;
+    color: #a77935;
+}
+
+.schedule-empty {
+    padding: 45px 20px;
+    text-align: center;
+    border: 1px dashed #d8d8cf;
+    border-radius: 16px;
+    background: rgba(250,249,245,.7);
+}
+
+.schedule-empty-icon {
+    width: 42px;
+    height: 42px;
+    margin: 0 auto 12px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    background: #eeeae0;
+    color: var(--gold-dark);
+    font-weight: 950;
+}
+
+.schedule-empty h3 {
+    margin: 0 0 6px;
+    font-size: 17px;
+}
+
+.schedule-empty p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* Tables and controls */
+
+th {
+    padding: 11px 10px;
+    font-size: 10px;
+}
+
+td {
+    padding: 13px 10px;
+}
+
+.btn {
+    min-height: 39px;
+    padding: 0 15px;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.field input,
+.field textarea,
+.field select {
+    min-height: 42px;
+    padding: 8px 11px;
+    border-radius: 10px;
+}
+
+.dialog {
+    padding: 23px;
+    border-radius: 19px;
+}
+
+.dialog h2 {
+    font-size: 20px;
+}
+
+
+/* =========================================================
+   COMPACT RESPONSIVE RULES
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+    .sidebar {
+        width: 220px;
+    }
+
+    .main-content {
+        margin-left: 220px;
+        width: calc(100% - 220px);
+    }
+
+    .topbar {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .page-content {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .hero {
+        min-height: 470px;
+        padding: 44px;
+    }
+
+    .dashboard-grid {
+        gap: 15px;
+    }
+}
+
+
+@media (max-width: 950px) {
+
+    .sidebar {
+        width: 76px;
+        padding: 20px 8px;
+    }
+
+    .main-content {
+        margin-left: 76px;
+        width: calc(100% - 76px);
+    }
+
+    .topbar {
+        padding: 18px 22px;
+    }
+
+    .page-content {
+        padding: 22px;
+    }
+
+    .tournament-selector {
+        min-width: 235px;
+    }
+
+    .schedule-match-card {
+        grid-template-columns:
+            45px
+            minmax(0,1fr)
+            78px;
+
+        gap: 10px;
+        padding: 12px;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .topbar {
+        gap: 12px;
+    }
+
+    .hero {
+        min-height: 520px;
+        padding: 34px 28px;
+    }
+
+    .hero h2 {
+        font-size: 44px;
+    }
+
+    .schedule-page-panel {
+        padding: 20px;
+    }
+
+    .schedule-title-row,
+    .matches-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .schedule-generate-btn {
+        width: 100%;
+    }
+
+    .schedule-match-card {
+        grid-template-columns:
+            42px
+            minmax(0,1fr);
+    }
+
+    .match-status {
+        grid-column: 2;
+        justify-content: flex-start;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .sidebar {
+        width: 64px;
+    }
+
+    .main-content {
+        margin-left: 64px;
+        width: calc(100% - 64px);
+    }
+
+    .page-content {
+        padding: 15px;
+    }
+
+    .topbar {
+        padding: 17px 15px;
+    }
+
+    .page-title {
+        font-size: 23px;
+    }
+
+    .hero {
+        min-height: 500px;
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .hero h2 {
+        font-size: 37px;
+    }
+}

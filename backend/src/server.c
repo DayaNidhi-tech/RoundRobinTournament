@@ -39,7 +39,9 @@ static void send_bytes(
         "Content-Type: %s\r\n"
         "Content-Length: %lu\r\n"
         "Connection: close\r\n"
-        "Cache-Control: public, max-age=3600\r\n"
+        "Cache-Control: no-cache, no-store, must-revalidate\r\n"
+        "Pragma: no-cache\r\n"
+        "Expires: 0\r\n"
         "\r\n",
         code,
         status,
@@ -1128,5 +1130,3 @@ int server_run(
         }
     }
 }
-
-
