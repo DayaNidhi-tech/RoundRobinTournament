@@ -122,9 +122,10 @@ static void respond_json(
     free(body);
 }
 
-static Tournament *get_tournament(
+static Tournament *get_owned_tournament(
     TournamentStore *s,
-    const char *path
+    const char *path,
+    int owner_id
 ) {
     int id = 0;
 
@@ -132,7 +133,7 @@ static Tournament *get_tournament(
         return NULL;
     }
 
-    return tournament_find(s, id);
+    return tournament_find_owned(s, id, owner_id);
 }
 
 /*
@@ -840,7 +841,8 @@ static void handle_api(
     TournamentStore *s,
     const char *m,
     const char *p,
-    const char *b
+    const char *b,
+    const AuthUser *current_user
 ) {
     char err[256] = {0};
 
@@ -865,7 +867,7 @@ static void handle_api(
         respond_json(
             c,
             200,
-            json_tournaments(s)
+            json_tournaments(s, current_user->id)
         );
 
         return;
@@ -894,6 +896,7 @@ static void handle_api(
 
         t = tournament_create(
             s,
+            current_user->id,
             name,
             desc,
             err,
@@ -914,7 +917,7 @@ static void handle_api(
     /*
         All remaining API routes require a tournament.
     */
-    t = get_tournament(s, p);
+    t = get_owned_tournament(s, p, current_user->id);
 
     if (!t) {
         respond_json(
@@ -1485,7 +1488,7 @@ static void client(
             ) {
                 respond_json(c, 403, json_message(0, "View-only accounts cannot change tournament data"));
             } else {
-                handle_api(c, s, method, path, body);
+                handle_api(c, s, method, path, body, user);
             }
         }
     }
