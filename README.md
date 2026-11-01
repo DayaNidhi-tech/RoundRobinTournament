@@ -9,9 +9,9 @@ mingw32-make
 .\tournament_hub.exe
 ```
 
-Open http://localhost:8080. If that port is occupied, run `.\tournament_hub.exe 8091` and open http://localhost:8091. Run automated tests with `mingw32-make test`.
+Open http://localhost:8080. If that port is occupied, run `.\tournament_hub.exe 8091` and open http://localhost:8091. The first visit opens administrator setup; create an administrator username and password before continuing. Administrators can add and manage accounts from the Users section. View-only accounts can read tournament data but cannot modify it. Run automated tests with `mingw32-make test`.
 
-The server is intentionally a compact local-learning server: it handles one request per connection, has basic HTTP/JSON parsing, and binds only to localhost. It is not designed for public deployment.
+Accounts are stored in `data/users.bin`; passwords are salted and hashed with Windows PBKDF2-SHA256, and login sessions are invalidated when the server stops. The server is intentionally a compact local-learning server: it handles one request per connection, has basic HTTP/JSON parsing, and binds only to localhost. It is not designed for public deployment.
 
 ## Features
 
@@ -20,6 +20,7 @@ The server is intentionally a compact local-learning server: it handles one requ
 - Deterministic circle-method schedules for even and odd team counts
 - BYE fixtures, result entry, C-calculated football standings
 - Binary save/load at `data/tournaments.bin`
+- Administrator-managed user accounts, sign-in, and view-only roles
 - REST-like JSON API and a responsive professional dashboard
 
 See `docs/` for architecture, algorithm, API, testing and Advanced C explanations.

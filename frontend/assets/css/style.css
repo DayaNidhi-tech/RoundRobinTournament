@@ -124,6 +124,8 @@ body {
 
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
 
     box-shadow:
         8px 0 30px rgba(18, 25, 21, 0.10);
@@ -1467,6 +1469,84 @@ tr:last-child td {
     box-shadow:
         0 0 0 4px
         rgba(201, 162, 99, 0.12);
+}
+
+.auth-shell {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+}
+
+.auth-card {
+    width: min(100%, 460px);
+    padding: 34px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 22px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: var(--shadow);
+}
+
+.auth-brand {
+    margin-bottom: 30px;
+}
+
+.auth-card h1 {
+    margin: 9px 0;
+    color: var(--ink);
+    font-size: 28px;
+}
+
+.auth-card > p {
+    color: var(--muted);
+    line-height: 1.6;
+}
+
+.auth-submit {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.auth-error {
+    min-height: 20px;
+    margin-bottom: 0;
+    color: #a23b3b !important;
+}
+
+.auth-logout {
+    margin-top: 12px;
+    width: 100%;
+}
+
+.users-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 18px 21px;
+}
+
+.role-badge {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 999px;
+    background: var(--green-light);
+    color: #365b43;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: capitalize;
+}
+
+.role-badge.admin {
+    background: var(--gold-light);
+    color: #735324;
+}
+
+@media (max-width: 520px) {
+    .auth-card {
+        padding: 25px 21px;
+    }
 }
 
 
