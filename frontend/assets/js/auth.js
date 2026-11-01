@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 toast(error.message, true);
             } finally {
                 sessionStorage.removeItem('authToken');
+                localStorage.removeItem('tournamentId');
                 location.replace('login.html');
             }
         });

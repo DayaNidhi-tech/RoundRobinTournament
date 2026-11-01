@@ -122,10 +122,10 @@ static void respond_json(
     free(body);
 }
 
-static Tournament *get_owned_tournament(
+static Tournament *get_accessible_tournament(
     TournamentStore *s,
     const char *path,
-    int owner_id
+    const AuthUser *user
 ) {
     int id = 0;
 
@@ -133,7 +133,11 @@ static Tournament *get_owned_tournament(
         return NULL;
     }
 
-    return tournament_find_owned(s, id, owner_id);
+    if (user->role == AUTH_ROLE_ADMIN) {
+        return tournament_find(s, id);
+    }
+
+    return tournament_find_owned(s, id, user->id);
 }
 
 /*
@@ -867,7 +871,10 @@ static void handle_api(
         respond_json(
             c,
             200,
-            json_tournaments(s, current_user->id)
+            json_tournaments(
+                s,
+                current_user->role == AUTH_ROLE_ADMIN ? 0 : current_user->id
+            )
         );
 
         return;
@@ -917,7 +924,7 @@ static void handle_api(
     /*
         All remaining API routes require a tournament.
     */
-    t = get_owned_tournament(s, p, current_user->id);
+    t = get_accessible_tournament(s, p, current_user);
 
     if (!t) {
         respond_json(
